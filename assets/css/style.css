@@ -1,0 +1,52 @@
+* {
+	box-sizing: border-box;
+}
+
+
+
+.container {
+	border: 3px solid black;
+	width: 80%;
+	align-content: center;
+	display: block;
+	margin: 60px auto;
+	text-align: center;
+	font-size: 30px;
+	background-color: #f0ead6;
+	padding-top: 20px;
+}
+
+/* Header */
+h1 {
+	display: block;
+	justify-content: center;
+	align-self: center;
+}
+
+nav {
+	display: flex;
+	justify-content: space-around;
+	margin: 10px;
+}
+
+#startButton {
+	padding: 10px 20px;
+	margin: 20px 20px 20px 150px;
+	background-color: aqua;
+	font-size: 30px;
+}
+
+/* Main body / Game */
+main {
+	border-top: 3px solid black;
+}
+
+footer {
+	border-top: 3px solid black;
+}
+
+footer div{
+	text-align: center;
+	font-size: 60px;
+	font-weight: bolder;
+}
