@@ -1,32 +1,13 @@
-// declare variables for initials, correctScore, wrongScore, firstPlace, secondPlace, thirdPlace
-// create an array of objects that holds question and answer objects
-// create a timer
-// create a function that randomly picks a question
-// create a variables that holds the usersAnswer
-// create an event listener that will hold usersAnswer
-// check if the usersAnswer matches the correctAnswer
-// if the userAnswer matches the answer then increment the correctScore counter and display a correct message
-// if the userAnswer does not matches the answer then increment the wrongScore counter, display the correct answer, and decrees the counter clock by 10 seconds
-// have the correctScore, wrongScore, and counter clock displayed at the top of the screen
-// at the end of the quiz display the correctScore, wrongScore
-// if the correctScore is in the top 3 scores get the users initials and place them on the leaderBoard
-// else tell them they did not make the top 3 scores
-
-let initials = '';
-let correctScore = 0;
-let wrongScore = 0;
-let firstPlace = [];
-let secondPlace = [];
-let thirdPlace = [];
+/*******************  global variables ********************/
 let startTime = 60;
 let timeLeft;
-let answer = '';
-let timeInterval;
 
-// array of questions
+/*******************  array of questions ********************/
+
 const questions = [questions1, questions2, questions3, questions4];
 
-// query selectors
+/*******************  query selectors ********************/
+
 const startButton = document.querySelector('#startButton');
 const gameDescription = document.querySelector('.description');
 const answerArea = document.querySelector('#answerArea');
@@ -42,7 +23,9 @@ const nextButton = document.querySelector('#nextButton');
 const timer = document.querySelector('#timer');
 const questionBox = document.querySelector('#questionBox');
 
-// functions
+/*******************  functions ********************/
+
+// toggles the Description Area
 const hideDescription = function () {
 	let descriptionVisible = gameDescription.getAttribute('style');
 	if (descriptionVisible === 'display: visible') {
@@ -52,7 +35,7 @@ const hideDescription = function () {
 	}
 };
 
-// hides the answer area
+// toggles the Answer Area
 const hideAnswerArea = function () {
 	let answerAreaVisible = answerArea.getAttribute('style');
 	if (answerAreaVisible === 'display: visible') {
@@ -68,44 +51,49 @@ const randomQuestionGenerator = function () {
 	return Math.floor(Math.random() * (4 - 1) + 1);
 };
 
+// creates a new question
+const generateQuestion = function () {
+	if (timeLeft > 0) {
+		let currentQuestion = questions[randomQuestionGenerator()];
+		countdown(currentQuestion);
+	} else {
+		console.log('GAME OVER MAN!');
+	}
+};
+
 // countdown function
-function countdown(currentQuestion, questionNumber) {
-	timeInterval = setInterval(function () {
+function countdown(currentQuestion) {
+	let timeInterval = setInterval(function () {
 		if (timeLeft > 0) {
 			timeLeft--;
 			timer.textContent = timeLeft;
+			
+            questionLine.textContent = currentQuestion.question;
+			answerALine.textContent = currentQuestion.A;
+			answerBLine.textContent = currentQuestion.B;
+			answerCLine.textContent = currentQuestion.C;
+			answerDLine.textContent = currentQuestion.D;
 
-			questionBox.addEventListener('click', (event) => {
+			questionBox.addEventListener('click', (userAnswer) => {
 				clearInterval(timeInterval);
 				hideAnswerArea();
+                let answer = userAnswer.target.lastChild.textContent;
+                console.log(answer);
 			});
-            
 		} else {
 			clearInterval(timeInterval);
 		}
 	}, 1000);
 }
 
-// creates a new question
-const generateQuestion = function (){
-    if(timeLeft > 0){
-    let questionNumber = randomQuestionGenerator();
-    console.log(questionNumber);
-    let currentQuestion = questions[questionNumber];
-    console.log(currentQuestion);
-    countdown(currentQuestion, questionNumber);
-    } else{
-        console.log("GAME OVER MAN!");
-    }
-}
-
 // main function of the game
-const startGame = function (){
+const startGame = function () {
 	timeLeft = startTime;
 	hideDescription();
-    generateQuestion();
+	generateQuestion();
 };
 
-// event listeners
+/*******************  Event Listeners ********************/
+
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', hideAnswerArea);
