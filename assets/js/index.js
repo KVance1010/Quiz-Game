@@ -1,6 +1,10 @@
 /*******************  global variables ********************/
 let startTime = 60;
 let timeLeft;
+// used to set the random number generator
+let numbOfQuestions = 4;
+let correct = 0;
+let wrong = 0;
 
 /*******************  array of questions ********************/
 
@@ -46,9 +50,9 @@ const hideAnswerArea = function () {
 	}
 };
 
-// generates a random number between 1 and 4
+// generates a random number
 const randomQuestionGenerator = function () {
-	return Math.floor(Math.random() * (4 - 1) + 1);
+	return Math.floor(Math.random() * (numbOfQuestions - 1) + 1);
 };
 
 // creates a new question
@@ -66,9 +70,12 @@ function countdown(currentQuestion) {
 	let timeInterval = setInterval(function () {
 		if (timeLeft > 0) {
 			timeLeft--;
+			let answer;
 			timer.textContent = timeLeft;
-			
-            questionLine.textContent = currentQuestion.question;
+			currentCorrect.textContent = correct;
+			currentWrong.textContent = wrong;
+
+			questionLine.textContent = currentQuestion.question;
 			answerALine.textContent = currentQuestion.A;
 			answerBLine.textContent = currentQuestion.B;
 			answerCLine.textContent = currentQuestion.C;
@@ -77,8 +84,19 @@ function countdown(currentQuestion) {
 			questionBox.addEventListener('click', (userAnswer) => {
 				clearInterval(timeInterval);
 				hideAnswerArea();
-                let answer = userAnswer.target.lastChild.textContent;
-                console.log(answer);
+				answer = userAnswer.target.lastChild.textContent;
+				console.log(answer);
+				console.log(currentQuestion.answer);
+
+				// if (answer === currentQuestion.answer) {
+				// 	correct++;
+				// 	answerText.textContent = 'Correct';
+				// } else {
+				// 	timeLeft -= 10;
+				// 	wrong++;
+				// 	answerText.textContent =
+				// 		'The correct answer is ' + currentQuestion.answer;
+				// }
 			});
 		} else {
 			clearInterval(timeInterval);

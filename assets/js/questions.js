@@ -5,7 +5,7 @@ const questions1 = {
 	B: 'B123',
 	C: 'C123',
 	D: 'D123',
-	answer: 'Answer',
+	answer: 'C123',
 };
 const questions2 = {
 	question: 'Question 2',
@@ -13,7 +13,7 @@ const questions2 = {
 	B: 'B543',
 	C: 'C543',
 	D: 'D534',
-	answer: 'Answer',
+	answer: 'C543',
 };
 const questions3 = {
 	question: 'Question 3',
@@ -21,7 +21,7 @@ const questions3 = {
 	B: 'B824',
 	C: 'C824',
 	D: 'D824',
-	answer: 'Answer',
+	answer: 'C824',
 };
 const questions4 = {
 	question: 'Question 4',
@@ -29,5 +29,5 @@ const questions4 = {
 	B: 'B',
 	C: 'C',
 	D: 'D',
-	answer: 'Answer',
+	answer: 'C',
 };
