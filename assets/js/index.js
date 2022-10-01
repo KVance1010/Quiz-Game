@@ -61,7 +61,9 @@ const generateQuestion = function () {
 		let currentQuestion = questions[randomQuestionGenerator()];
 		countdown(currentQuestion);
 	} else {
-		console.log('GAME OVER MAN!');
+		// hideAnswerArea();
+		// answerText.textContent = 'GAME OVER!';
+        console.log('Game Over!');
 	}
 };
 
@@ -70,7 +72,7 @@ function countdown(currentQuestion) {
 	let timeInterval = setInterval(function () {
 		if (timeLeft > 0) {
 			timeLeft--;
-			let answer;
+			
 			timer.textContent = timeLeft;
 			currentCorrect.textContent = correct;
 			currentWrong.textContent = wrong;
@@ -84,10 +86,9 @@ function countdown(currentQuestion) {
 			questionBox.addEventListener('click', (userAnswer) => {
 				clearInterval(timeInterval);
 				hideAnswerArea();
-				answer = userAnswer.target.lastChild.textContent;
+				let answer = userAnswer.target.lastChild.textContent;
 				console.log(answer);
 				console.log(currentQuestion.answer);
-
 				// if (answer === currentQuestion.answer) {
 				// 	correct++;
 				// 	answerText.textContent = 'Correct';
@@ -97,7 +98,11 @@ function countdown(currentQuestion) {
 				// 	answerText.textContent =
 				// 		'The correct answer is ' + currentQuestion.answer;
 				// }
-			});
+                nextButton.addEventListener('click', () => {
+                    hideAnswerArea();
+                    generateQuestion();
+                });
+			});	
 		} else {
 			clearInterval(timeInterval);
 		}
