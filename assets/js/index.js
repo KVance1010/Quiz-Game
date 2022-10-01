@@ -15,44 +15,11 @@
 let initials = '';
 let correctScore = 0;
 let wrongScore = 0;
-let firstPlace;
-let secondPlace;
-let thirdPlace;
+let firstPlace = [];
+let secondPlace = [];
+let thirdPlace = [];
 let timeLeft = 60;
-
-// question objects
-const questions1 = {
-	question: 'Question 1',
-	A: 'A',
-	B: 'B',
-	C: 'C',
-	D: 'D',
-	answer: 'Answer',
-};
-const questions2 = {
-	question: 'Question 2',
-	A: 'A',
-	B: 'B',
-	C: 'C',
-	D: 'D',
-	answer: 'Answer',
-};
-const questions3 = {
-	question: 'Question 3',
-	A: 'A',
-	B: 'B',
-	C: 'C',
-	D: 'D',
-	answer: 'Answer',
-};
-const questions4 = {
-	question: 'Question 4',
-	A: 'A',
-	B: 'B',
-	C: 'C',
-	D: 'D',
-	answer: 'Answer',
-};
+let answer = '';
 
 // array of questions
 const questions = [questions1, questions2, questions3, questions4];
@@ -71,9 +38,21 @@ const currentCorrect = document.querySelector('#correctScore');
 const currentWrong = document.querySelector('#wrongScore');
 const nextButton = document.querySelector('#nextButton');
 const timer = document.querySelector('#timer');
+const questionBox = document.querySelector('#questionBox');
+
 
 // functions
+
 // hides the description text
+// const hideDescription = function () {
+// 	let descriptionVisible = (gameDescription.style.display = 'visible');
+// 	if (descriptionVisible === 'visible') {
+// 		gameDescription.style.display = 'none';
+// 	} else {
+// 		gameDescription.style.display = 'visible';
+// 	}
+// };
+
 const hideDescription = function () {
 	let descriptionVisible = (gameDescription.style.display = 'visible');
 	if (descriptionVisible === 'visible') {
@@ -100,14 +79,22 @@ const randomQuestionGenerator = function () {
 
 function countdown(currentTimeLeft) {
 	let timeInterval = setInterval(function () {
-		if (currentTimeLeft > 1) {
+		if (currentTimeLeft > 0) {
 			currentTimeLeft--;
-            timer.textContent = currentTimeLeft;
+			timer.textContent = currentTimeLeft;
+			
+            questionBox.addEventListener('click', (event) => {
+				answer = event.target.value;
+				console.log(answer);
+			});
+            
+			timeInterval.preventDefault();
+           
 
-            return currentTimeLeft;
+			// return currentTimeLeft;
 		} else {
 			clearInterval(timeInterval);
-            return 0;
+			return 0;
 		}
 	}, 1000);
 }
@@ -115,14 +102,16 @@ function countdown(currentTimeLeft) {
 // main function of the game
 const startGame = function () {
 	hideDescription();
-	let currentQuestion = questions[randomQuestionGenerator()];
 	let currentTimeLeft = timeLeft;
-	while (currentTimeLeft > 0) {
-		currentTimeLeft = countdown(currentTimeLeft);
-	}
+    countdown(currentTimeLeft);
+	// while (currentTimeLeft > 0) {
+	// 	let currentQuestion = questions[randomQuestionGenerator()];
+	// 	console.log(currentQuestion);
+	// 	currentTimeLeft = countdown(currentTimeLeft);
+	// }
 };
 
 // event listeners
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', hideAnswerArea);
-
+hideAnswerArea();
