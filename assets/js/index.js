@@ -18,8 +18,10 @@ let wrongScore = 0;
 let firstPlace = [];
 let secondPlace = [];
 let thirdPlace = [];
-let timeLeft = 60;
+let startTime = 60;
+let timeLeft;
 let answer = '';
+let timeInterval;
 
 // array of questions
 const questions = [questions1, questions2, questions3, questions4];
@@ -40,35 +42,24 @@ const nextButton = document.querySelector('#nextButton');
 const timer = document.querySelector('#timer');
 const questionBox = document.querySelector('#questionBox');
 
-
 // functions
-
-// hides the description text
-// const hideDescription = function () {
-// 	let descriptionVisible = (gameDescription.style.display = 'visible');
-// 	if (descriptionVisible === 'visible') {
-// 		gameDescription.style.display = 'none';
-// 	} else {
-// 		gameDescription.style.display = 'visible';
-// 	}
-// };
-
 const hideDescription = function () {
-	let descriptionVisible = (gameDescription.style.display = 'visible');
-	if (descriptionVisible === 'visible') {
-		gameDescription.style.display = 'none';
+	let descriptionVisible = gameDescription.getAttribute('style');
+	if (descriptionVisible === 'display: visible') {
+		gameDescription.setAttribute('style', 'display: none');
 	} else {
-		gameDescription.style.display = 'visible';
+		gameDescription.setAttribute('style', 'display: visible');
 	}
 };
 
 // hides the answer area
 const hideAnswerArea = function () {
-	let answerAreaVisible = (answerArea.style.display = 'visible');
-	if (answerAreaVisible === 'visible') {
-		answerArea.style.display = 'none';
+	let answerAreaVisible = answerArea.getAttribute('style');
+	if (answerAreaVisible === 'display: visible') {
+		answerArea.setAttribute('style', 'display: none');
 	} else {
 		answerArea.style.display = 'visible';
+		answerArea.setAttribute('style', 'display: visible');
 	}
 };
 
@@ -77,19 +68,17 @@ const randomQuestionGenerator = function () {
 	return Math.floor(Math.random() * (4 - 1) + 1);
 };
 
-function countdown(currentTimeLeft) {
-	let timeInterval = setInterval(function () {
-		if (currentTimeLeft > 0) {
-			currentTimeLeft--;
-			timer.textContent = currentTimeLeft;
-			
-            questionBox.addEventListener('click', (event) => {
-				answer = event.target.value;
-				console.log(answer);
+// countdown function
+function countdown() {
+	timeInterval = setInterval(function () {
+		if (timeLeft > 0) {
+			timeLeft--;
+			timer.textContent = timeLeft;
+
+			questionBox.addEventListener('click', (event) => {
+				clearInterval(timeInterval);
+				hideAnswerArea();
 			});
-            
-			timeInterval.preventDefault();
-           
 
 			// return currentTimeLeft;
 		} else {
@@ -101,17 +90,15 @@ function countdown(currentTimeLeft) {
 
 // main function of the game
 const startGame = function () {
+	timeLeft = startTime;
 	hideDescription();
-	let currentTimeLeft = timeLeft;
-    countdown(currentTimeLeft);
-	// while (currentTimeLeft > 0) {
+    countdown();
+	// while (timeLeft > 0) {
 	// 	let currentQuestion = questions[randomQuestionGenerator()];
-	// 	console.log(currentQuestion);
-	// 	currentTimeLeft = countdown(currentTimeLeft);
+	// 	countdown();
 	// }
 };
 
 // event listeners
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', hideAnswerArea);
-hideAnswerArea();
