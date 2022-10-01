@@ -69,7 +69,7 @@ const randomQuestionGenerator = function () {
 };
 
 // countdown function
-function countdown() {
+function countdown(currentQuestion, questionNumber) {
 	timeInterval = setInterval(function () {
 		if (timeLeft > 0) {
 			timeLeft--;
@@ -79,24 +79,31 @@ function countdown() {
 				clearInterval(timeInterval);
 				hideAnswerArea();
 			});
-
-			// return currentTimeLeft;
+            
 		} else {
 			clearInterval(timeInterval);
-			return 0;
 		}
 	}, 1000);
 }
 
+// creates a new question
+const generateQuestion = function (){
+    if(timeLeft > 0){
+    let questionNumber = randomQuestionGenerator();
+    console.log(questionNumber);
+    let currentQuestion = questions[questionNumber];
+    console.log(currentQuestion);
+    countdown(currentQuestion, questionNumber);
+    } else{
+        console.log("GAME OVER MAN!");
+    }
+}
+
 // main function of the game
-const startGame = function () {
+const startGame = function (){
 	timeLeft = startTime;
 	hideDescription();
-    countdown();
-	// while (timeLeft > 0) {
-	// 	let currentQuestion = questions[randomQuestionGenerator()];
-	// 	countdown();
-	// }
+    generateQuestion();
 };
 
 // event listeners
