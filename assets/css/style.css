@@ -5,7 +5,7 @@
 
 
 .container {
-	border: 3px solid black;
+	border: 10px groove black;
 	width: 80%;
 	align-content: center;
 	display: block;
@@ -32,21 +32,52 @@ nav {
 #startButton {
 	padding: 10px 20px;
 	margin: 20px 20px 20px 150px;
-	background-color: aqua;
+	background-color: darkblue;
+	color:gold;
 	font-size: 30px;
+	border-radius: 20px;
 }
 
 /* Main body / Game */
 main {
-	border-top: 3px solid black;
+	border-top: 3px solid darkslategray;
+	padding: 20px;
+	text-align: start;
+	left: 20px;
+}
+main div {
+	margin: 10px;
+}
+
+#question {
+	font-size: 40px;
+}
+
+
+/* Answer area */
+#answerArea {
+	display:none;
 }
 
 footer {
-	border-top: 3px solid black;
+	padding: 20px;
+	border-top: 3px solid darkslategray;
+	display:flex;
+	justify-content: space-evenly;
 }
 
 footer div{
 	text-align: center;
 	font-size: 60px;
 	font-weight: bolder;
+	align-self: center;
+}
+
+footer button{
+	padding: 10px 20px;
+	margin: 20px 20px 20px 150px;
+	background-color: darkblue;
+	font-size: 60px;
+	border-radius: 20px;
+	color: gold;
 }

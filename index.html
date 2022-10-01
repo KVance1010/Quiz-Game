@@ -12,32 +12,35 @@
 
 <body>
     <div class="container">
-    <header>
-        <h1>Test your knowledge of JavaScrip</h1>
-        <nav>
-            <div id="correctScore">Correct: </div>
-            <div id="wrongScore">Wrong: </div>
-            <div id="timmer">Time Remaining:</div>
-        </nav>
-        <p class="description">
-            Lets see how much you know about JavaScripts. In this quiz game
-            we will test your knowledge through timed questions. You will have
-            1 min to answer as many questions as you can. You will be given 100 points for each correct answer. If you
-            answer the question wrong 10 seconds will be taken off of your test timer.
-            <button id= "startButton">START</button>
-        </p>
-    </header>
-    <main>
-        <div id="question">Question:</div>
-        <div id="answerA">A:</div>
-        <div id="answerB">B:</div>
-        <div id="answerC">C:</div>
-        <div id="answerD">D:</div>
-        <div id="correctAnswer"></div>
-    </main>
-    <footer>
-        <div class ="answerArea"></div>
-    </footer>
+        <header>
+            <h1>Test your knowledge of JavaScrip</h1>
+            <nav>
+                <div id="correctScore">Correct: </div>
+                <div id="wrongScore">Wrong: </div>
+                <div>Time Remaining: <span id="timer"></span></div>
+            </nav>
+            <p class="description">
+                Lets see how much you know about JavaScripts. In this quiz game
+                we will test your knowledge through timed questions. You will have
+                1 min to answer as many questions as you can. You will be given 100 points for each correct answer. If
+                you
+                answer the question wrong 10 seconds will be taken off of your test timer.
+                <button id="startButton">START</button>
+            </p>
+        </header>
+        <main>
+            <div id="question">Question:</div>
+            <div id="questionBox">
+                <div id="answerA">A:</div>
+                <div id="answerB">B:</div>
+                <div id="answerC">C:</div>
+                <div id="answerD">D:</div>
+            </div>
+        </main>
+        <footer id="answerArea">
+            <div class="answerText"></div>
+            <button id="nextButton">Next</button>
+        </footer>
     </div>
 </body>
 

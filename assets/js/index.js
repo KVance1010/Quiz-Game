@@ -9,7 +9,7 @@
 // if the userAnswer does not matches the answer then increment the wrongScore counter, display the correct answer, and decrees the counter clock by 10 seconds
 // have the correctScore, wrongScore, and counter clock displayed at the top of the screen
 // at the end of the quiz display the correctScore, wrongScore
-// if the correctScore is in the top 3 scores get the users initials and place them on the leaderboard
+// if the correctScore is in the top 3 scores get the users initials and place them on the leaderBoard
 // else tell them they did not make the top 3 scores
 
 let initials = '';
@@ -18,6 +18,7 @@ let wrongScore = 0;
 let firstPlace;
 let secondPlace;
 let thirdPlace;
+let timeLeft = 60;
 
 // question objects
 const questions1 = {
@@ -60,16 +61,68 @@ const questions = [questions1, questions2, questions3, questions4];
 const startButton = document.querySelector('#startButton');
 const gameDescription = document.querySelector('.description');
 const answerArea = document.querySelector('#answerArea');
+const answerText = document.querySelector('#answerText');
 const questionLine = document.querySelector('#question');
 const answerALine = document.querySelector('#answerA');
 const answerBLine = document.querySelector('#answerB');
 const answerCLine = document.querySelector('#answerC');
 const answerDLine = document.querySelector('#answerD');
+const currentCorrect = document.querySelector('#correctScore');
+const currentWrong = document.querySelector('#wrongScore');
+const nextButton = document.querySelector('#nextButton');
+const timer = document.querySelector('#timer');
 
 // functions
+// hides the description text
 const hideDescription = function () {
-	gameDescription.style.display = 'none';
+	let descriptionVisible = (gameDescription.style.display = 'visible');
+	if (descriptionVisible === 'visible') {
+		gameDescription.style.display = 'none';
+	} else {
+		gameDescription.style.display = 'visible';
+	}
+};
+
+// hides the answer area
+const hideAnswerArea = function () {
+	let answerAreaVisible = (answerArea.style.display = 'visible');
+	if (answerAreaVisible === 'visible') {
+		answerArea.style.display = 'none';
+	} else {
+		answerArea.style.display = 'visible';
+	}
+};
+
+// generates a random number between 1 and 4
+const randomQuestionGenerator = function () {
+	return Math.floor(Math.random() * (4 - 1) + 1);
+};
+
+function countdown(currentTimeLeft) {
+	let timeInterval = setInterval(function () {
+		if (currentTimeLeft > 1) {
+			currentTimeLeft--;
+            timer.textContent = currentTimeLeft;
+
+            return currentTimeLeft;
+		} else {
+			clearInterval(timeInterval);
+            return 0;
+		}
+	}, 1000);
+}
+
+// main function of the game
+const startGame = function () {
+	hideDescription();
+	let currentQuestion = questions[randomQuestionGenerator()];
+	let currentTimeLeft = timeLeft;
+	while (currentTimeLeft > 0) {
+		currentTimeLeft = countdown(currentTimeLeft);
+	}
 };
 
 // event listeners
-gameDescription.addEventListener('click', hideDescription);
+startButton.addEventListener('click', startGame);
+nextButton.addEventListener('click', hideAnswerArea);
+
