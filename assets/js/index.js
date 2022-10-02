@@ -5,6 +5,7 @@ let timeLeft;
 let numbOfQuestions = 4;
 let correct = 0;
 let wrong = 0;
+let timeInterval;
 
 /*******************  array of questions ********************/
 
@@ -59,55 +60,57 @@ const randomQuestionGenerator = function () {
 const generateQuestion = function () {
 	if (timeLeft > 0) {
 		let currentQuestion = questions[randomQuestionGenerator()];
-		countdown(currentQuestion);
+		countdown();
+		displayQuestion(currentQuestion);
 	} else {
-		// hideAnswerArea();
-		// answerText.textContent = 'GAME OVER!';
-        console.log('Game Over!');
+		console.log('Game Over!');
 	}
 };
 
 // countdown function
-function countdown(currentQuestion) {
-	let timeInterval = setInterval(function () {
+const countdown = function () {
+	timeInterval = setInterval(function () {
 		if (timeLeft > 0) {
 			timeLeft--;
-			
 			timer.textContent = timeLeft;
-			currentCorrect.textContent = correct;
-			currentWrong.textContent = wrong;
-
-			questionLine.textContent = currentQuestion.question;
-			answerALine.textContent = currentQuestion.A;
-			answerBLine.textContent = currentQuestion.B;
-			answerCLine.textContent = currentQuestion.C;
-			answerDLine.textContent = currentQuestion.D;
-
-			questionBox.addEventListener('click', (userAnswer) => {
-				clearInterval(timeInterval);
-				hideAnswerArea();
-				let answer = userAnswer.target.lastChild.textContent;
-				console.log(answer);
-				console.log(currentQuestion.answer);
-				// if (answer === currentQuestion.answer) {
-				// 	correct++;
-				// 	answerText.textContent = 'Correct';
-				// } else {
-				// 	timeLeft -= 10;
-				// 	wrong++;
-				// 	answerText.textContent =
-				// 		'The correct answer is ' + currentQuestion.answer;
-				// }
-                nextButton.addEventListener('click', () => {
-                    hideAnswerArea();
-                    generateQuestion();
-                });
-			});	
 		} else {
 			clearInterval(timeInterval);
 		}
 	}, 1000);
-}
+};
+
+// Display question
+const displayQuestion = function (currentQuestion) {
+	currentCorrect.textContent = correct;
+	currentWrong.textContent = wrong;
+
+	questionLine.textContent = currentQuestion.question;
+	answerALine.textContent = currentQuestion.A;
+	answerBLine.textContent = currentQuestion.B;
+	answerCLine.textContent = currentQuestion.C;
+	answerDLine.textContent = currentQuestion.D;
+
+	questionBox.addEventListener('click', (userAnswer) => {
+		clearInterval(timeInterval);
+		hideAnswerArea();
+		let answer = userAnswer.target.lastChild.textContent;
+		console.log(answer);
+		console.log(currentQuestion.answer);
+		if (answer === currentQuestion.answer) {
+			correct++;
+			answerText.innerHTML = "Correct";
+		} else {
+			timeLeft -= 10;
+			wrong++;
+			answerText.textContent =
+				"The correct answer is " + currentQuestion.answer;
+		}
+	});
+    nextButton.addEventListener('click', () => {
+        hideAnswerArea();
+        generateQuestion();
+    });
+};
 
 // main function of the game
 const startGame = function () {
@@ -120,3 +123,4 @@ const startGame = function () {
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', hideAnswerArea);
+
