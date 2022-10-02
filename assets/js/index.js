@@ -2,14 +2,57 @@
 let startTime = 60;
 let timeLeft;
 // used to set the random number generator
-let numbOfQuestions = 4;
+let numbOfQuestions = 51;
 let correct = 0;
 let wrong = 0;
 let timeInterval;
 
 /*******************  array of questions ********************/
 
-const questions = [questions1, questions2, questions3, questions4];
+const questions = [
+	question1,
+	question2,
+	question3,
+	question4,
+	question5,
+	question6,
+	question7,
+	question8,
+	question9,
+	question10,
+	question11,
+	question12,
+	question13,
+	question14,
+	question15,
+	question16,
+	question17,
+	question18,
+	question19,
+	question20,
+	question21,
+	question22,
+	question23,
+	question24,
+	question25,
+	question26,
+	question27,
+	question28,
+	question29,
+	question30,
+	question40,
+	question41,
+	question42,
+	question43,
+	question44,
+	question45,
+	question46,
+	question47,
+	question48,
+	question49,
+	question50,
+	question51,
+];
 
 /*******************  query selectors ********************/
 
@@ -96,20 +139,26 @@ const displayQuestion = function (currentQuestion) {
 		let answer = userAnswer.target.lastChild.textContent;
 		console.log(answer);
 		console.log(currentQuestion.answer);
+
+
+
+
+/****************** TODO: fix this so that it adds to correct and also display content to the screen ***/
 		if (answer === currentQuestion.answer) {
 			correct++;
-			answerText.innerHTML = "Correct";
+			answerText.innerHTML = 'Correct';
 		} else {
 			timeLeft -= 10;
 			wrong++;
 			answerText.textContent =
-				"The correct answer is " + currentQuestion.answer;
+				'The correct answer is ' + currentQuestion.answer;
 		}
 	});
-    nextButton.addEventListener('click', () => {
-        hideAnswerArea();
-        generateQuestion();
-    });
+/****************** TODO: fix this too ****************/
+	nextButton.addEventListener('click', () => {
+		hideAnswerArea();
+		generateQuestion();
+	});
 };
 
 // main function of the game
@@ -123,4 +172,3 @@ const startGame = function () {
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', hideAnswerArea);
-
