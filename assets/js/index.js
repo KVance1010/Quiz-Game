@@ -140,26 +140,27 @@ const displayQuestion = function (currentQuestion) {
 		console.log(answer);
 		console.log(currentQuestion.answer);
 
-
-
-
-/****************** TODO: fix this so that it adds to correct and also display content to the screen ***/
+		/****************** TODO: fix this so that it adds to correct and also display content to the screen ***/
 		if (answer === currentQuestion.answer) {
 			correct++;
-			answerText.innerHTML = 'Correct';
+			answerText.textContent = 'Correct';
 		} else {
 			timeLeft -= 10;
 			wrong++;
-			answerText.textContent =
-				'The correct answer is ' + currentQuestion.answer;
+			answerText.textContent ='The correct answer is ' + currentQuestion.answer;
 		}
 	});
-/****************** TODO: fix this too ****************/
-	nextButton.addEventListener('click', () => {
-		hideAnswerArea();
-		generateQuestion();
-	});
+	// nextButton.addEventListener('click', () => {
+	// 	hideAnswerArea();
+	// 	generateQuestion();
+	// });
 };
+
+/****************** TODO: fix this too ****************/
+nextButton.addEventListener('click', () => {
+	hideAnswerArea();
+	generateQuestion();
+});
 
 // main function of the game
 const startGame = function () {

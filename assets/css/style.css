@@ -2,8 +2,7 @@
 	box-sizing: border-box;
 }
 
-
-
+/* Main container */
 .container {
 	border: 10px groove black;
 	width: 80%;
@@ -16,7 +15,7 @@
 	padding-top: 20px;
 }
 
-/* Header */
+/* Header, name counter, and scores*/
 h1 {
 	display: block;
 	justify-content: center;
@@ -33,12 +32,12 @@ nav {
 	padding: 10px 20px;
 	margin: 20px 20px 20px 150px;
 	background-color: darkblue;
-	color:gold;
+	color: gold;
 	font-size: 30px;
 	border-radius: 20px;
 }
 
-/* Main body / Game */
+/* Main body / Game and questions */
 main {
 	border-top: 3px solid darkslategray;
 	padding: 20px;
@@ -53,25 +52,31 @@ main div {
 	font-size: 40px;
 }
 
+/* Answer Area of the game */
 footer {
 	padding: 20px;
 	border-top: 3px solid darkslategray;
-	display:flex;
+	display: flex;
 	justify-content: space-evenly;
 }
 
-footer div{
+footer div {
 	text-align: center;
 	font-size: 60px;
 	font-weight: bolder;
 	align-self: center;
 }
 
-footer button{
+footer button {
 	padding: 10px 20px;
 	margin: 20px 20px 20px 150px;
 	background-color: darkblue;
 	font-size: 60px;
 	border-radius: 20px;
 	color: gold;
+}
+
+/* link to the questions */
+.reference {
+	text-align: center;
 }
