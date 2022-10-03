@@ -15,12 +15,22 @@
     <div class="container">
         <header>
             <h1>Test your knowledge of JavaScrip</h1>
-            <nav>
+            <nav id = "mainNav" style="display: visible;">
                 <div>Correct: <span id="correctScore"></span> </div>
                 <div>Wrong: <span id="wrongScore"></span></div>
-                <div>Time Remaining: <span id="timer"></span></div>
+                <div>Time Remaining: <span id="timer"></span><span id="penaltyTime"></span></div>
             </nav>
-           <p class="description" style= "display: visible" >  
+            <div id="scoreBoard" style="display: none;">  
+                <h2>LeaderBoard</h2>
+                <h3>Your Score: <span id = "usersScore"></span></h3>
+               <ol>
+                <li id= "firstPlace"></li>
+                <li id= "secondPlace"></li>
+                <li id= "thirdPlace"></li>
+               </ol>
+                <button id="tryAgain" >Try Again</button>
+            </div>
+           <p class="description" style= "display: visible;" >  
                 Let's see how much you know about JavaScripts. In this quiz game
                 we will test your knowledge through timed questions. You will have
                 1 min to answer as many questions as you can. You will be given 100 points for each correct answer. If
@@ -28,6 +38,7 @@
                 answer the question wrong 10 seconds will be taken off of your test timer.
                 <button id="startButton">START</button>
             </p>
+            
         </header>
         <main >
             <div id="question">Question:</div>
@@ -38,7 +49,7 @@
                 <div>D: <span id="answerD"></span></div>
             </div>
         </main>
-        <footer id="answerArea" style="display: none">
+        <footer id="answerArea" style="display: none;">
             <div class="answerText"></div>
             <button id="nextButton">Next</button>
         </footer>

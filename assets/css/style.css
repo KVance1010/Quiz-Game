@@ -28,9 +28,9 @@ nav {
 	margin: 10px;
 }
 
-#startButton {
+header button {
 	padding: 10px 20px;
-	margin: 20px 20px 20px 150px;
+	margin: 20px 20px 20px 20px;
 	background-color: darkblue;
 	color: gold;
 	font-size: 30px;

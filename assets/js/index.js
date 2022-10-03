@@ -1,11 +1,13 @@
 /*******************  global variables ********************/
 let startTime = 60;
 let timeLeft;
-// used to set the random number generator
-let numbOfQuestions = 51;
 let correct = 0;
 let wrong = 0;
 let timeInterval;
+let yourScore = 0;
+// used to set the random number generator
+let numbOfQuestions = 51;
+
 
 /*******************  array of questions ********************/
 
@@ -51,15 +53,28 @@ const questions = [
 	question48,
 	question49,
 	question50,
-	question51,
+	question51
 ];
+
+/*******************  Score Board ********************/
+
+let scoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
+if (scoreBoard === null) {
+	scoreBoard =  {
+		firstPlace: ["xxx", 0],
+		secondPlace: ["xxx", 0],
+		thirdPlace: ["xxx", 0]
+	};
+localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
+}
+
 
 /*******************  query selectors ********************/
 
-const startButton = document.querySelector('#startButton');
+const answerText = document.querySelector('.answerText');
 const gameDescription = document.querySelector('.description');
 const answerArea = document.querySelector('#answerArea');
-const answerText = document.querySelector('.answerText');
+const startButton = document.querySelector('#startButton');
 const questionLine = document.querySelector('#question');
 const answerALine = document.querySelector('#answerA');
 const answerBLine = document.querySelector('#answerB');
@@ -70,28 +85,27 @@ const currentWrong = document.querySelector('#wrongScore');
 const nextButton = document.querySelector('#nextButton');
 const timer = document.querySelector('#timer');
 const questionBox = document.querySelector('#questionBox');
+const penaltyTime = document.querySelector('#penaltyTime');
 
 /*******************  functions ********************/
 
 // toggles the Description Area
 const hideDescription = function () {
 	let descriptionVisible = gameDescription.getAttribute('style');
-	if (descriptionVisible === 'display: visible') {
-		gameDescription.setAttribute('style', 'display: none');
+	if (descriptionVisible === 'display: visible;') {
+		gameDescription.setAttribute('style', 'display: none;');
 	} else {
-		gameDescription.setAttribute('style', 'display: visible');
+		gameDescription.setAttribute('style', 'display: visible;');
 	}
 };
 
 // toggles the Answer Area
 const hideAnswerArea = function () {
 	let answerAreaVisible = answerArea.getAttribute('style');
-	console.log(answerAreaVisible);
-	if (answerAreaVisible === 'display: visible') {
-		answerArea.setAttribute('style', 'display: none');
+	if (answerAreaVisible === 'display: visible;') {
+		answerArea.setAttribute('style', 'display: none;');
 	} else {
-		answerArea.style.display = 'visible';
-		answerArea.setAttribute('style', 'display: visible');
+		answerArea.setAttribute('style', 'display: visible;');
 	}
 };
 
@@ -100,8 +114,10 @@ const randomQuestionGenerator = function () {
 	return Math.floor(Math.random() * (numbOfQuestions - 1) + 1);
 };
 
+// generates a random number and question
 const generateQuestion = function () {
 	if (timeLeft > 0) {
+		// TODO: add numbers to an array and check if they have been asked
 		let generatedNum = randomQuestionGenerator();
 		let currentQuestion = questions[generatedNum];
 		answerArea.dataset.num = generatedNum;
@@ -128,7 +144,6 @@ const countdown = function () {
 const displayQuestion = function (currentQuestion) {
 	currentCorrect.textContent = correct;
 	currentWrong.textContent = wrong;
-
 	questionLine.textContent = currentQuestion.question;
 	answerALine.textContent = currentQuestion.A;
 	answerBLine.textContent = currentQuestion.B;
@@ -151,6 +166,7 @@ startButton.addEventListener('click', startGame);
 // functionality for the next button
 nextButton.addEventListener('click', () => {
 	hideAnswerArea();
+	penaltyTime.textContent = '';
 	generateQuestion();
 });
 
@@ -167,6 +183,8 @@ questionBox.addEventListener('click', (userAnswer) => {
 	} else {
 		if (timeLeft > 10) {
 			timeLeft -= 10;
+			penaltyTime.style.color = 'red';
+			penaltyTime.textContent = ' -10';
 		} else {
 			timeLeft = 0;
 			timer.textContent = 0;
