@@ -5,7 +5,7 @@ const question1 = {
 	B: 'let',
 	C: 'const',
 	D: 'string',
-	answer: 'string',
+	answer: 'string'
 };
 const question2 = {
 	question: 'JavaScript is ______ language',
@@ -13,7 +13,7 @@ const question2 = {
 	B: 'Programming',
 	C: 'Both a and b',
 	D: 'Application',
-	answer: 'Scripting',
+	answer: 'Scripting'
 };
 const question3 = {
 	question: 'JavaScript is ______ Side scripting language.',
@@ -21,7 +21,7 @@ const question3 = {
 	B: 'Client',
 	C: 'ISP',
 	D: 'Browser',
-	answer: 'Browser',
+	answer: 'Browser'
 };
 const question4 = {
 	question: 'The behavior of the document elements can be defined by?',
@@ -29,7 +29,7 @@ const question4 = {
 	B: 'Registering appropriate event handlers',
 	C: 'Using element object',
 	D: 'All of the mentioned',
-	answer: 'Registering appropriate event handlers',
+	answer: 'Registering appropriate event handlers'
 };
 const question5 = {
 	question:
@@ -38,7 +38,7 @@ const question5 = {
 	B: 'XMLRequest',
 	C: 'XMLHttpRequest',
 	D: 'All of the mentioned',
-	answer: 'XMLHttpRequest',
+	answer: 'XMLHttpRequest'
 };
 const question6 = {
 	question: 'The HTML5 specification includes?',
@@ -46,7 +46,7 @@ const question6 = {
 	B: 'Graphics APIs',
 	C: 'XMLHttpRequest',
 	D: 'All of the mentioned',
-	answer: 'All of the mentioned',
+	answer: 'All of the mentioned'
 };
 const question7 = {
 	question: 'Which of the following are not advanced services?',
@@ -54,7 +54,7 @@ const question7 = {
 	B: 'Networking',
 	C: 'XMLHttpRequest object',
 	D: 'None of the mentioned',
-	answer: 'None of the mentioned',
+	answer: 'None of the mentioned'
 };
 const question8 = {
 	question: 'JavaScript code between a pair of “script” tags are called?',
@@ -62,7 +62,7 @@ const question8 = {
 	B: 'External',
 	C: 'Referenced',
 	D: 'Inline',
-	answer: 'Inline',
+	answer: 'Inline'
 };
 const question9 = {
 	question: 'Client-side JavaScript code is embedded within HTML documents in?',
@@ -70,7 +70,7 @@ const question9 = {
 	B: 'A URL that uses the special javascript:stack',
 	C: 'A URL that uses the special javascript:protocol',
 	D: 'A URL that uses the special javascript:code',
-	answer: 'XMLHttpRequest',
+	answer: 'XMLHttpRequest'
 };
 const question10 = {
 	question:
@@ -79,7 +79,7 @@ const question10 = {
 	B: 'Obtrusive JavaScript',
 	C: 'Inherited JavaScript',
 	D: 'Modular JavaScript',
-	answer: 'Unobtrusive JavaScript',
+	answer: 'Unobtrusive JavaScript'
 };
 const question11 = {
 	question:
@@ -88,7 +88,7 @@ const question11 = {
 	B: 'Interactive Web Pages',
 	C: 'Conditional Web Pages',
 	D: 'None of the mentioned',
-	answer: 'Interactive Web Pages',
+	answer: 'Interactive Web Pages'
 };
 const question12 = {
 	question:
@@ -97,7 +97,7 @@ const question12 = {
 	B: '<BODY>',
 	C: '<HEAD>',
 	D: '<TITLE>',
-	answer: '<SCRIPT>',
+	answer: '<SCRIPT>'
 };
 const question13 = {
 	question: 'How does JavaScript store dates in a date object?',
@@ -105,7 +105,7 @@ const question13 = {
 	B: 'The number of days since January 1st, 1900',
 	C: "The number of seconds since Netscape's public stock offering.",
 	D: 'None of the above',
-	answer: 'The number of milliseconds since January 1st, 1970',
+	answer: 'The number of milliseconds since January 1st, 1970'
 };
 const question14 = {
 	question: 'Which of the following attribute can hold the JavaScript version?',
@@ -113,7 +113,7 @@ const question14 = {
 	B: 'SCRIPT',
 	C: 'VERSION',
 	D: 'None of the above',
-	answer: 'LANGUAGE',
+	answer: 'LANGUAGE'
 };
 const question15 = {
 	question: 'What is the correct JavaScript syntax to write "Hello World"?',
@@ -121,7 +121,7 @@ const question15 = {
 	B: 'println ("Hello World")',
 	C: 'document.write("Hello World")',
 	D: 'response.write("Hello World")',
-	answer: 'document.write("Hello World")',
+	answer: 'document.write("Hello World")'
 };
 const question16 = {
 	question:
@@ -131,7 +131,7 @@ const question16 = {
 	C: '<SCRIPT LANGUAGE="JavaScriptVersion">    JavaScript statements…</SCRIPT>',
 	D: '<SCRIPT LANGUAGE="JavaScriptVersion"!>    JavaScript statements…</SCRIPT>',
 	answer:
-		'<SCRIPT LANGUAGE="JavaScriptVersion">    JavaScript statements…</SCRIPT>',
+		'<SCRIPT LANGUAGE="JavaScriptVersion">    JavaScript statements…</SCRIPT>'
 };
 const question17 = {
 	question: 'Inside which HTML element do we put the JavaScript?',
@@ -139,7 +139,7 @@ const question17 = {
 	B: '<scripting>',
 	C: '<script>',
 	D: '<javascript>',
-	answer: '<script>',
+	answer: '<script>'
 };
 const question18 = {
 	question:
@@ -148,7 +148,7 @@ const question18 = {
 	B: '<script name=" abc.js">',
 	C: '<script src=" abc.js">',
 	D: 'None of the above',
-	answer: '<script src=" abc.js">',
+	answer: '<script src=" abc.js">'
 };
 const question19 = {
 	question: 'Which types of image maps can be used with JavaScript?',
@@ -156,7 +156,7 @@ const question19 = {
 	B: 'Client-side image maps',
 	C: 'Server-side image maps and Client-side image maps',
 	D: 'None of the above',
-	answer: 'Client-side image maps',
+	answer: 'Client-side image maps'
 };
 const question20 = {
 	question:
@@ -165,7 +165,7 @@ const question20 = {
 	B: 'navigator.appName',
 	C: 'navigator.appVersion',
 	D: 'None of the above',
-	answer: 'navigator.appCodeName',
+	answer: 'navigator.appCodeName'
 };
 const question21 = {
 	question: 'Which is the correct way to write a JavaScript array?',
@@ -173,7 +173,7 @@ const question21 = {
 	B: 'var txt = new Array:1=("tim")2=("kim")3=("jim")',
 	C: ' var txt = new Array("tim","kim","jim")',
 	D: 'var txt = new Array="tim","kim","jim"',
-	answer: 'var txt = new Array("tim","kim","jim")',
+	answer: 'var txt = new Array("tim","kim","jim")'
 };
 const question22 = {
 	question:
@@ -182,7 +182,7 @@ const question22 = {
 	B: 'Prevents scripts on the page from executing.',
 	C: 'Describes certain low-budget movies.',
 	D: 'None of the above',
-	answer: 'Enclose text to be displayed by non-JavaScript browsers.',
+	answer: 'Enclose text to be displayed by non-JavaScript browsers.'
 };
 const question23 = {
 	question:
@@ -191,7 +191,7 @@ const question23 = {
 	B: 'para1.value="New Text";',
 	C: 'para1.firstChild.nodeValue= "New Text";',
 	D: 'para1.nodeValue="New Text";',
-	answer: 'para1.value="New Text";',
+	answer: 'para1.value="New Text";'
 };
 const question24 = {
 	question:
@@ -200,7 +200,7 @@ const question24 = {
 	B: 'Semicolon, Ampersand',
 	C: 'Ampersand, colon',
 	D: 'Ampersand, semicolon',
-	answer: 'Ampersand, semicolon',
+	answer: 'Ampersand, semicolon'
 };
 const question25 = {
 	question:
@@ -209,7 +209,7 @@ const question25 = {
 	B: 'a scripting language precompiled in the browser.',
 	C: 'a compiled scripting language.',
 	D: 'an object-oriented scripting language.',
-	answer: 'an object-oriented scripting language.',
+	answer: 'an object-oriented scripting language.'
 };
 const question26 = {
 	question:
@@ -218,7 +218,7 @@ const question26 = {
 	B: 'Function',
 	C: 'File',
 	D: 'Date',
-	answer: 'File',
+	answer: 'File'
 };
 const question27 = {
 	question:
@@ -227,7 +227,7 @@ const question27 = {
 	B: 'this',
 	C: 'delete',
 	D: 'typeof',
-	answer: 'this',
+	answer: 'this'
 };
 const question28 = {
 	question:
@@ -236,7 +236,7 @@ const question28 = {
 	B: 'ParseInt',
 	C: 'ParseFloat',
 	D: 'Efloat',
-	answer: 'Eval',
+	answer: 'Eval'
 };
 const question29 = {
 	question:
@@ -245,7 +245,7 @@ const question29 = {
 	B: 'Cursor',
 	C: 'Client',
 	D: 'FileUpLoad',
-	answer: 'FileUpLoad',
+	answer: 'FileUpLoad'
 };
 const question30 = {
 	question:
@@ -254,7 +254,7 @@ const question30 = {
 	B: 'onblur',
 	C: 'onclick',
 	D: 'ondblclick',
-	answer: 'onblur',
+	answer: 'onblur'
 };
 const question31 = {
 	question:
@@ -263,7 +263,7 @@ const question31 = {
 	B: '[objectName.]eval(string)',
 	C: '[EvalName.]eval(string)',
 	D: '[EvalName.]eval(numeriC.',
-	answer: '[objectName.]eval(string)',
+	answer: '[objectName.]eval(string)'
 };
 const question32 = {
 	question:
@@ -272,7 +272,7 @@ const question32 = {
 	B: 'Server',
 	C: 'Object',
 	D: 'None of the above',
-	answer: 'Client',
+	answer: 'Client'
 };
 const question33 = {
 	question:
@@ -281,7 +281,7 @@ const question33 = {
 	B: 'If',
 	C: 'Switch',
 	D: 'For',
-	answer: 'Select',
+	answer: 'Select'
 };
 const question34 = {
 	question:
@@ -290,7 +290,7 @@ const question34 = {
 	B: 'if (conditional expression is true)execute this codeend if',
 	C: 'if (conditional expression is true)   {then execute this code>->}',
 	D: 'if (conditional expression is true) then {execute this code}',
-	answer: 'if (conditional expression is true)   {then execute this code>->}',
+	answer: 'if (conditional expression is true)   {then execute this code>->}'
 };
 const question35 = {
 	question:
@@ -299,7 +299,7 @@ const question35 = {
 	B: 'dateObjectName.new Date([parameters])',
 	C: 'dateObjectName := new Date([parameters])',
 	D: 'dateObjectName Date([parameters])',
-	answer: 'dateObjectName = new Date([parameters])',
+	answer: 'dateObjectName = new Date([parameters])'
 };
 const question36 = {
 	question:
@@ -308,7 +308,7 @@ const question36 = {
 	B: 'Shift',
 	C: 'Slice',
 	D: 'Splice',
-	answer: 'Splice',
+	answer: 'Splice'
 };
 const question37 = {
 	question:
@@ -317,7 +317,7 @@ const question37 = {
 	B: 'window.handleEvents (Event.CLICK);',
 	C: 'window.routeEvents(Event.CLICK );',
 	D: 'window.raiseEvents(Event.CLICK );',
-	answer: 'window.captureEvents(Event.CLICK);',
+	answer: 'window.captureEvents(Event.CLICK);'
 };
 const question38 = {
 	question:
@@ -326,7 +326,7 @@ const question38 = {
 	B: '<A>',
 	C: '<BR>',
 	D: 'None of the above',
-	answer: '<A>',
+	answer: '<A>'
 };
 const question39 = {
 	question:
@@ -335,7 +335,7 @@ const question39 = {
 	B: 'Protocol',
 	C: 'Defaultstatus',
 	D: 'Host',
-	answer: 'Defaultstatus',
+	answer: 'Defaultstatus'
 };
 const question40 = {
 	question:
@@ -344,7 +344,7 @@ const question40 = {
 	B: 'MS_ENABLE_TAINT',
 	C: 'NS_ENABLE_TAINT',
 	D: 'ENABLE_TAINT_NS',
-	answer: 'NS_ENABLE_TAINT',
+	answer: 'NS_ENABLE_TAINT'
 };
 const question41 = {
 	question:
@@ -353,7 +353,7 @@ const question41 = {
 	B: 'a link',
 	C: 'a cursor',
 	D: 'a form ',
-	answer: 'a wrapper',
+	answer: 'a wrapper'
 };
 const question42 = {
 	question:
@@ -362,7 +362,7 @@ const question42 = {
 	B: 'JSObject',
 	C: 'JavaObject',
 	D: 'Jobject',
-	answer: 'JSObject',
+	answer: 'JSObject'
 };
 const question43 = {
 	question:
@@ -371,7 +371,7 @@ const question43 = {
 	B: 'JSObject',
 	C: 'JavaObject',
 	D: 'Jobject',
-	answer: 'JSObject',
+	answer: 'JSObject'
 };
 const question44 = {
 	question:
@@ -380,7 +380,7 @@ const question44 = {
 	B: 'JavaClass',
 	C: 'JavaObject',
 	D: 'JavaPackage',
-	answer: 'JavaArray',
+	answer: 'JavaArray'
 };
 const question45 = {
 	question:
@@ -389,7 +389,7 @@ const question45 = {
 	B: 'JavaClass',
 	C: 'JavaObject',
 	D: 'JavaPackage',
-	answer: 'JavaClass',
+	answer: 'JavaClass'
 };
 const question46 = {
 	question:
@@ -398,7 +398,7 @@ const question46 = {
 	B: 'netscape.javascript.JSException',
 	C: 'netscape.plugin.JSException',
 	D: 'None of the above',
-	answer: 'netscape.javascript.JSException',
+	answer: 'netscape.javascript.JSException'
 };
 const question47 = {
 	question:
@@ -407,7 +407,7 @@ const question47 = {
 	B: 'user_pref("javascript.classic.error_alerts ", false);',
 	C: 'user_pref("javascript.console.open_on_error ", true);',
 	D: ' user_pref("javascript.console.open_on_error ", false);',
-	answer: 'user_pref("javascript.classic.error_alerts", true);',
+	answer: 'user_pref("javascript.classic.error_alerts", true);'
 };
 const question48 = {
 	question:
@@ -416,7 +416,7 @@ const question48 = {
 	B: 'user_pref("javascript.console.open_error ", true);',
 	C: 'user_pref("javascript.console.open_error ", false);',
 	D: 'user_pref("javascript.console.open_on_error", true);',
-	answer: 'user_pref("javascript.console.open_on_error", true);',
+	answer: 'user_pref("javascript.console.open_on_error", true);'
 };
 const question49 = {
 	question:
@@ -425,7 +425,7 @@ const question49 = {
 	B: 'Blur(contrast)',
 	C: 'Blur(value)',
 	D: 'Blur(depth)',
-	answer: 'Blur()',
+	answer: 'Blur()'
 };
 const question50 = {
 	question:
@@ -434,7 +434,7 @@ const question50 = {
 	B: 'captureEvents(args eventType)',
 	C: 'captureEvents(eventType)',
 	D: 'captureEvents(eventVal)',
-	answer: 'captureEvents(eventType)',
+	answer: 'captureEvents(eventType)'
 };
 const question51 = {
 	question:
@@ -443,5 +443,5 @@ const question51 = {
 	B: ' Close(object)',
 	C: 'Close(val)',
 	D: 'Close()',
-	answer: 'Close()',
+	answer: 'Close()'
 };

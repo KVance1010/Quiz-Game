@@ -51,7 +51,7 @@ const questions = [
 	question48,
 	question49,
 	question50,
-	question51,
+	question51
 ];
 
 /*******************  query selectors ********************/
@@ -59,7 +59,7 @@ const questions = [
 const startButton = document.querySelector('#startButton');
 const gameDescription = document.querySelector('.description');
 const answerArea = document.querySelector('#answerArea');
-const answerText = document.querySelector('#answerText');
+const answerText = document.querySelector('.answerText');
 const questionLine = document.querySelector('#question');
 const answerALine = document.querySelector('#answerA');
 const answerBLine = document.querySelector('#answerB');
@@ -140,23 +140,21 @@ const displayQuestion = function (currentQuestion) {
 		console.log(answer);
 		console.log(currentQuestion.answer);
 
-		/****************** TODO: fix this so that it adds to correct and also display content to the screen ***/
 		if (answer === currentQuestion.answer) {
 			correct++;
+			answerText.style.color = 'green';
 			answerText.textContent = 'Correct';
 		} else {
-			timeLeft -= 10;
+			(timeLeft > 10) ? (timeLeft-=10) : (timeLeft=0); 
 			wrong++;
-			answerText.textContent ='The correct answer is ' + currentQuestion.answer;
+			answerText.style.color = 'red';
+			answerText.textContent ='The correct answer is: ' + currentQuestion.answer;
 		}
 	});
-	// nextButton.addEventListener('click', () => {
-	// 	hideAnswerArea();
-	// 	generateQuestion();
-	// });
 };
 
 /****************** TODO: fix this too ****************/
+// functionality for the next button
 nextButton.addEventListener('click', () => {
 	hideAnswerArea();
 	generateQuestion();
