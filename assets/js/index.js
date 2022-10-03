@@ -8,7 +8,6 @@ let yourScore = 0;
 // used to set the random number generator
 let numbOfQuestions = 51;
 
-
 /*******************  array of questions ********************/
 
 const questions = [
@@ -60,19 +59,20 @@ const questions = [
 
 let scoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
 if (scoreBoard === null) {
-	scoreBoard =  {
-		firstPlace: ["xxx", 0],
-		secondPlace: ["xxx", 0],
-		thirdPlace: ["xxx", 0]
+	scoreBoard = {
+		firstPlace: ['xxx', 0],
+		secondPlace: ['xxx', 0],
+		thirdPlace: ['xxx', 0],
 	};
-localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
+	localStorage.setItem('scoreBoard', JSON.stringify(scoreBoard));
 }
-
 
 /*******************  query selectors ********************/
 
 const answerText = document.querySelector('.answerText');
 const gameDescription = document.querySelector('.description');
+const mainNav = document.querySelector('#mainNav');
+const scoreBoardDisplay = document.querySelector('#scoreBoardDisplay');
 const answerArea = document.querySelector('#answerArea');
 const startButton = document.querySelector('#startButton');
 const questionLine = document.querySelector('#question');
@@ -89,6 +89,7 @@ const penaltyTime = document.querySelector('#penaltyTime');
 
 /*******************  functions ********************/
 
+//************* */ TODO: create one toggle function that handles all the different options to make the code more dry  ***********
 // toggles the Description Area
 const hideDescription = function () {
 	let descriptionVisible = gameDescription.getAttribute('style');
@@ -108,6 +109,30 @@ const hideAnswerArea = function () {
 		answerArea.setAttribute('style', 'display: visible;');
 	}
 };
+
+// toggles scoreBoard and  main info
+const toggleCounterScore = function () {
+	let descriptionVisible = mainNav.getAttribute('style');
+	if (descriptionVisible === 'display: visible;') {
+		mainNav.setAttribute('style', 'display: none;');
+		scoreBoardDisplay.setAttribute('style', 'display: visible;');
+	} else {
+		mainNav.setAttribute('style', 'display: visible;');
+		scoreBoardDisplay.setAttribute('style', 'display: visible;');
+	}
+};
+
+const toggleNextButton = function () {
+	let descriptionVisible = nextButton.getAttribute('style');
+	if (descriptionVisible === 'display: visible;') {
+		nextButton.setAttribute('style', 'display: none;');
+	} else {
+		nextButton.setAttribute('style', 'display: visible;');
+	}
+};
+
+
+/*****************************  NEED to REFACTOR  **********************************************************************************/
 
 // generates a random number
 const randomQuestionGenerator = function () {
