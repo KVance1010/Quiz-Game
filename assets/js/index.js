@@ -51,7 +51,7 @@ const questions = [
 	question48,
 	question49,
 	question50,
-	question51
+	question51,
 ];
 
 /*******************  query selectors ********************/
@@ -86,6 +86,7 @@ const hideDescription = function () {
 // toggles the Answer Area
 const hideAnswerArea = function () {
 	let answerAreaVisible = answerArea.getAttribute('style');
+	console.log(answerAreaVisible);
 	if (answerAreaVisible === 'display: visible') {
 		answerArea.setAttribute('style', 'display: none');
 	} else {
@@ -99,10 +100,11 @@ const randomQuestionGenerator = function () {
 	return Math.floor(Math.random() * (numbOfQuestions - 1) + 1);
 };
 
-// creates a new question
 const generateQuestion = function () {
 	if (timeLeft > 0) {
-		let currentQuestion = questions[randomQuestionGenerator()];
+		let generatedNum = randomQuestionGenerator();
+		let currentQuestion = questions[generatedNum];
+		answerArea.dataset.num = generatedNum;
 		countdown();
 		displayQuestion(currentQuestion);
 	} else {
@@ -132,33 +134,7 @@ const displayQuestion = function (currentQuestion) {
 	answerBLine.textContent = currentQuestion.B;
 	answerCLine.textContent = currentQuestion.C;
 	answerDLine.textContent = currentQuestion.D;
-
-	questionBox.addEventListener('click', (userAnswer) => {
-		clearInterval(timeInterval);
-		hideAnswerArea();
-		let answer = userAnswer.target.lastChild.textContent;
-		console.log(answer);
-		console.log(currentQuestion.answer);
-
-		if (answer === currentQuestion.answer) {
-			correct++;
-			answerText.style.color = 'green';
-			answerText.textContent = 'Correct';
-		} else {
-			(timeLeft > 10) ? (timeLeft-=10) : (timeLeft=0); 
-			wrong++;
-			answerText.style.color = 'red';
-			answerText.textContent ='The correct answer is: ' + currentQuestion.answer;
-		}
-	});
 };
-
-/****************** TODO: fix this too ****************/
-// functionality for the next button
-nextButton.addEventListener('click', () => {
-	hideAnswerArea();
-	generateQuestion();
-});
 
 // main function of the game
 const startGame = function () {
@@ -169,5 +145,35 @@ const startGame = function () {
 
 /*******************  Event Listeners ********************/
 
+//start game
 startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', hideAnswerArea);
+
+// functionality for the next button
+nextButton.addEventListener('click', () => {
+	hideAnswerArea();
+	generateQuestion();
+});
+
+// answer event listener
+questionBox.addEventListener('click', (userAnswer) => {
+	clearInterval(timeInterval);
+	hideAnswerArea();
+	let answer = userAnswer.target.lastChild.textContent;
+
+	if (answer === questions[answerArea.dataset.num].answer) {
+		correct++;
+		answerText.style.color = 'green';
+		answerText.textContent = 'Correct';
+	} else {
+		if (timeLeft > 10) {
+			timeLeft -= 10;
+		} else {
+			timeLeft = 0;
+			timer.textContent = 0;
+		}
+		wrong++;
+		answerText.style.color = 'red';
+		answerText.textContent =
+			'The correct answer is: ' + questions[answerArea.dataset.num].answer;
+	}
+});
