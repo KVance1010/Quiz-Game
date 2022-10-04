@@ -64,6 +64,7 @@ const questions = [
 const answerText = document.querySelector('.answerText');
 const gameDescription = document.querySelector('.description');
 const userScore = document.querySelector('#userScore');
+const tryAgain = document.querySelector('#tryAgain');
 const firstPlaceEl = document.querySelector('#firstPlace');
 const secondPlaceEl = document.querySelector('#secondPlace');
 const thirdPlaceEl = document.querySelector('#thirdPlace');
@@ -115,7 +116,7 @@ const toggleCounterScore = function () {
 		scoreBoardDisplay.setAttribute('style', 'display: visible;');
 	} else {
 		mainNav.setAttribute('style', 'display: visible;');
-		scoreBoardDisplay.setAttribute('style', 'display: visible;');
+		scoreBoardDisplay.setAttribute('style', 'display: none;');
 	}
 };
 
@@ -169,16 +170,25 @@ const displayTotals = function () {
 		let userInitials = prompt(
 			'you scored puts you in first place please enter your initials: '
 		);
+		thirdPlace[0] = secondPlace[0];
+		thirdPlace[1] = secondPlace[1];
+		secondPlace[0] = firstPlace[0];
+		secondPlace[1] = firstPlace[1];
 		firstPlace[0] = userInitials;
 		firstPlace[1] = yourScore;
 		firstPlaceEl.textContent = firstPlace[0] + ' ' + firstPlace[1];
+		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
+		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
 	} else if (yourScore > secondPlace[1]) {
 		let userInitials = prompt(
 			'you scored puts you in second place please enter your initials: '
 		);
+		thirdPlace[0] = secondPlace[0];
+		thirdPlace[1] = secondPlace[1];
 		secondPlace[0] = userInitials;
 		secondPlace[1] = yourScore;
 		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
+		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
 	} else if (yourScore > thirdPlace[1]) {
 		let userInitials = prompt(
 			'you scored puts you in third place please enter your initials: '
@@ -259,4 +269,9 @@ questionBox.addEventListener('click', (userAnswer) => {
 	}
 });
 
-
+tryAgain.addEventListener('click', () => {
+	toggleMainArea();
+	toggleCounterScore();
+	hideDescription();
+	startGame();
+});
