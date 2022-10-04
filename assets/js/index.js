@@ -4,9 +4,9 @@ let correct = 0;
 let wrong = 0;
 let yourScore = 0;
 let timeInterval;
-let firstPlace = ["xxx", 0 ];
-let secondPlace = ["xxx",0];
-let thirdPlace = ["xxx",0];
+let firstPlace = ['xxx', 0];
+let secondPlace = ['xxx', 0];
+let thirdPlace = ['xxx', 0];
 // used to set the random number generator
 let numbOfQuestions = 51;
 // this can be changed to change the amount of play time
@@ -56,7 +56,7 @@ const questions = [
 	question48,
 	question49,
 	question50,
-	question51
+	question51,
 ];
 
 /*******************  query selectors ********************/
@@ -155,17 +155,41 @@ const generateQuestion = function () {
 
 // displays the totals on scoreBoardDisplay
 const displayTotals = function () {
-	yourScore = current;
-	console.log(yourScore);
+	yourScore = correct * 100;
 	usersScore.style.fontWeight = 'bold';
 	usersScore.textContent = yourScore;
-	firstPlaceEl.setAttribute("style", "font-weight:bold font-size:20px");
-	firstPlaceEl.textContent =firstPlace[0] + ' ' + firstPlace[1];
+	firstPlaceEl.setAttribute('style', 'fontWeight:bold fontSize:40px');
+	firstPlaceEl.textContent = firstPlace[0] + ' ' + firstPlace[1];
+	secondPlaceEl.setAttribute('style', 'fontWeight:bold fontSize:30px');
 	secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
-	thirdPlaceEl.textContent =	thirdPlace[0] + ' ' + thirdPlace[1];
+	thirdPlaceEl.setAttribute('style', 'fontWeight:bold fontSize:20px');
+	thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
 
+	if (yourScore > firstPlace[1]) {
+		let userInitials = prompt(
+			'you scored puts you in first place please enter your initials: '
+		);
+		firstPlace[0] = userInitials;
+		firstPlace[1] = yourScore;
+		firstPlaceEl.textContent = firstPlace[0] + ' ' + firstPlace[1];
+	} else if (yourScore > secondPlace[1]) {
+		let userInitials = prompt(
+			'you scored puts you in second place please enter your initials: '
+		);
+		secondPlace[0] = userInitials;
+		secondPlace[1] = yourScore;
+		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
+	} else if (yourScore > thirdPlace[1]) {
+		let userInitials = prompt(
+			'you scored puts you in third place please enter your initials: '
+		);
+		thirdPlace[0] = userInitials;
+		thirdPlace[1] = yourScore;
+		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
+	} else {
+		alert('Game Over. You did not place withing the top 3 scores.');
+	}
 };
-
 
 // countdown function
 const countdown = function () {
@@ -234,3 +258,5 @@ questionBox.addEventListener('click', (userAnswer) => {
 			'The correct answer is: ' + questions[answerArea.dataset.num].answer;
 	}
 });
+
+
