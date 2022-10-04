@@ -200,7 +200,12 @@ const displayTotals = function () {
 		firstPlaceEl.textContent = firstPlace[0] + ' ' + firstPlace[1];
 		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
 		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
-
+		scoreBoard.firstPlace[0] = firstPlace[0];
+		scoreBoard.firstPlace[1] = firstPlace[1];
+		scoreBoard.secondPlace[0] = secondPlace[0];
+		scoreBoard.secondPlace[1] = secondPlace[1];
+		scoreBoard.thirdPlace[0] = thirdPlace[0];
+		scoreBoard.thirdPlace[1] = thirdPlace[1];	
 		localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
 	} else if (yourScore > secondPlace[1]) {
 		let userInitials = prompt(
@@ -212,7 +217,10 @@ const displayTotals = function () {
 		secondPlace[1] = yourScore;
 		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
 		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
-
+		scoreBoard.secondPlace[0] = secondPlace[0];
+		scoreBoard.secondPlace[1] = secondPlace[1];
+		scoreBoard.thirdPlace[0] = thirdPlace[0];
+		scoreBoard.thirdPlace[1] = thirdPlace[1];	
 		localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
 	} else if (yourScore > thirdPlace[1]) {
 		let userInitials = prompt(
@@ -221,7 +229,8 @@ const displayTotals = function () {
 		thirdPlace[0] = userInitials;
 		thirdPlace[1] = yourScore;
 		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
-
+		scoreBoard.thirdPlace[0] = thirdPlace[0];
+		scoreBoard.thirdPlace[1] = thirdPlace[1];
 		localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
 	} else {
 		alert('Game Over. You did not place withing the top 3 scores.');
