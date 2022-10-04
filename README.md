@@ -1,18 +1,11 @@
 # JavaScript Quiz Game
 
 ## Overview ---need to reword -- todo --
-
-
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
-
-To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
-
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
+This app is designed to help users practice for an interview through a javascript quiz game. 
 
 ### learning points  -- todo ---
 - JavaScript fundamentals
 - Flow control
-- Input validation
 - Prompts, alerts, and confirm functions
 - Event listeners
 
@@ -43,23 +36,41 @@ THEN I can save my initials and my score
 ## Technologies
  
 - **JavaScript**
+- **HTML**
+- **CSS**
 
 ## Screenshot/mockup
 
-![The mockup of the website before it was built](./assets/images/desktop-mockup1.jpg)
+![Start screen of the app](./assets/images/start.jpg)
+main start screen
+![correct answer](./assets/images/correct.jpg)
+correct answer chosen
+![leader board](./assets/images/score-board.jpg)
 
 ## CodeSnippets 
-### Converts unicode to a string
+### Countdown function
 ``` javascript
-function generateCharacter(characterNum) {
-	return String.fromCharCode(characterNum);
-}
+const countdown = function () {
+	timeInterval = setInterval(function () {
+		if (timeLeft > 0) {
+			timeLeft--;
+			timer.textContent = timeLeft;
+		} else {
+			clearInterval(timeInterval);
+		}
+	}, 1000);
+};
 ```
-### Generates a random number between 97 and 122
+### Start the game over function
 ``` javascript
-function randomForLowerCase() {
-	return Math.floor(Math.random() * (122 - 97 + 1)) + 97;
-}
+tryAgain.addEventListener('click', () => {
+	correct = 0;
+	wrong = 0;
+	toggleMainArea();
+	toggleCounterScore();
+	hideDescription();
+	startGame();
+});
 ```
 
 ## License
@@ -70,6 +81,9 @@ Please refer to the LICENSE in the repo.
 
 ### live Link
 [Live website] https://kvance1010.github.io/Quiz-Game/
+
+### All questions are from latestinterviewquestions
+[resource] https://www.latestinterviewquestions.com/javascript-multiple-choice-questions-answers
 
 ### LinkedIn
 [LinkedIn] https://www.linkedin.com/in/kyle-s-vance

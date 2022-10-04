@@ -150,7 +150,6 @@ const generateQuestion = function () {
 	if (timeLeft > 0) {
 		// TODO: add numbers to an array and check if they have been asked
 		let generatedNum = randomQuestionGenerator();
-
 		let currentQuestion = questions[generatedNum];
 		answerArea.dataset.num = generatedNum;
 		countdown();
