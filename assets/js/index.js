@@ -1,12 +1,16 @@
 /*******************  global variables ********************/
-let startTime = 60;
 let timeLeft;
 let correct = 0;
 let wrong = 0;
-let timeInterval;
 let yourScore = 0;
+let timeInterval;
+let firstPlace = ["xxx", 0 ];
+let secondPlace = ["xxx",0];
+let thirdPlace = ["xxx",0];
 // used to set the random number generator
 let numbOfQuestions = 51;
+// this can be changed to change the amount of play time
+let startTime = 60;
 
 /*******************  array of questions ********************/
 
@@ -55,22 +59,15 @@ const questions = [
 	question51
 ];
 
-/*******************  Score Board ********************/
-
-let scoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
-if (scoreBoard === null) {
-	scoreBoard = {
-		firstPlace: ['xxx', 0],
-		secondPlace: ['xxx', 0],
-		thirdPlace: ['xxx', 0],
-	};
-	localStorage.setItem('scoreBoard', JSON.stringify(scoreBoard));
-}
-
 /*******************  query selectors ********************/
 
 const answerText = document.querySelector('.answerText');
 const gameDescription = document.querySelector('.description');
+const userScore = document.querySelector('#userScore');
+const firstPlaceEl = document.querySelector('#firstPlace');
+const secondPlaceEl = document.querySelector('#secondPlace');
+const thirdPlaceEl = document.querySelector('#thirdPlace');
+const mainArea = document.querySelector('#mainArea');
 const mainNav = document.querySelector('#mainNav');
 const scoreBoardDisplay = document.querySelector('#scoreBoardDisplay');
 const answerArea = document.querySelector('#answerArea');
@@ -122,17 +119,16 @@ const toggleCounterScore = function () {
 	}
 };
 
-const toggleNextButton = function () {
-	let descriptionVisible = nextButton.getAttribute('style');
+// toggles the question when the game is over
+const toggleMainArea = function () {
+	let descriptionVisible = mainArea.getAttribute('style');
 	if (descriptionVisible === 'display: visible;') {
-		nextButton.setAttribute('style', 'display: none;');
+		mainArea.setAttribute('style', 'display: none;');
 	} else {
-		nextButton.setAttribute('style', 'display: visible;');
+		mainArea.setAttribute('style', 'display: visible;');
 	}
 };
-
-
-/*****************************  NEED to REFACTOR  **********************************************************************************/
+/*****************************  NEED to REFACTOR  these all do the same thing ********************************************/
 
 // generates a random number
 const randomQuestionGenerator = function () {
@@ -144,14 +140,32 @@ const generateQuestion = function () {
 	if (timeLeft > 0) {
 		// TODO: add numbers to an array and check if they have been asked
 		let generatedNum = randomQuestionGenerator();
+		console.log(generatedNum);
 		let currentQuestion = questions[generatedNum];
 		answerArea.dataset.num = generatedNum;
 		countdown();
 		displayQuestion(currentQuestion);
 	} else {
+		toggleMainArea();
+		toggleCounterScore();
+		displayTotals();
 		console.log('Game Over!');
 	}
 };
+
+// displays the totals on scoreBoardDisplay
+const displayTotals = function () {
+	yourScore = current;
+	console.log(yourScore);
+	usersScore.style.fontWeight = 'bold';
+	usersScore.textContent = yourScore;
+	firstPlaceEl.setAttribute("style", "font-weight:bold font-size:20px");
+	firstPlaceEl.textContent =firstPlace[0] + ' ' + firstPlace[1];
+	secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
+	thirdPlaceEl.textContent =	thirdPlace[0] + ' ' + thirdPlace[1];
+
+};
+
 
 // countdown function
 const countdown = function () {
