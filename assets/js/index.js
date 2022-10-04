@@ -45,6 +45,15 @@ const questions = [
 	question28,
 	question29,
 	question30,
+	question31,
+	question32,
+	question33,
+	question34,
+	question35,
+	question36,
+	question37,
+	question38,
+	question39,
 	question40,
 	question41,
 	question42,
@@ -56,7 +65,7 @@ const questions = [
 	question48,
 	question49,
 	question50,
-	question51,
+	question51
 ];
 
 /*******************  query selectors ********************/
@@ -133,7 +142,7 @@ const toggleMainArea = function () {
 
 // generates a random number
 const randomQuestionGenerator = function () {
-	return Math.floor(Math.random() * (numbOfQuestions - 1) + 1);
+	return Math.floor(Math.random() * (numbOfQuestions));
 };
 
 // generates a random number and question
@@ -141,7 +150,7 @@ const generateQuestion = function () {
 	if (timeLeft > 0) {
 		// TODO: add numbers to an array and check if they have been asked
 		let generatedNum = randomQuestionGenerator();
-		console.log(generatedNum);
+
 		let currentQuestion = questions[generatedNum];
 		answerArea.dataset.num = generatedNum;
 		countdown();
@@ -270,6 +279,8 @@ questionBox.addEventListener('click', (userAnswer) => {
 });
 
 tryAgain.addEventListener('click', () => {
+	correct = 0;
+	wrong = 0;
 	toggleMainArea();
 	toggleCounterScore();
 	hideDescription();
