@@ -4,9 +4,6 @@ let correct = 0;
 let wrong = 0;
 let yourScore = 0;
 let timeInterval;
-let firstPlace = ['xxx', 0];
-let secondPlace = ['xxx', 0];
-let thirdPlace = ['xxx', 0];
 // used to set the random number generator
 let numbOfQuestions = 51;
 // this can be changed to change the amount of play time
@@ -93,6 +90,22 @@ const nextButton = document.querySelector('#nextButton');
 const timer = document.querySelector('#timer');
 const questionBox = document.querySelector('#questionBox');
 const penaltyTime = document.querySelector('#penaltyTime');
+
+/*******************  Score Board ********************/
+
+let scoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
+if (scoreBoard === null) {
+	scoreBoard =  {
+		firstPlace: ["xxx", 0],
+		secondPlace: ["xxx", 0],
+		thirdPlace: ["xxx", 0]
+	};
+localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
+}
+
+let firstPlace = scoreBoard.firstPlace;
+let secondPlace = scoreBoard.secondPlace;
+let thirdPlace = scoreBoard.thirdPlace;
 
 /*******************  functions ********************/
 
@@ -187,6 +200,8 @@ const displayTotals = function () {
 		firstPlaceEl.textContent = firstPlace[0] + ' ' + firstPlace[1];
 		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
 		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
+
+		localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
 	} else if (yourScore > secondPlace[1]) {
 		let userInitials = prompt(
 			'you scored puts you in second place please enter your initials: '
@@ -197,6 +212,8 @@ const displayTotals = function () {
 		secondPlace[1] = yourScore;
 		secondPlaceEl.textContent = secondPlace[0] + ' ' + secondPlace[1];
 		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
+
+		localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
 	} else if (yourScore > thirdPlace[1]) {
 		let userInitials = prompt(
 			'you scored puts you in third place please enter your initials: '
@@ -204,6 +221,8 @@ const displayTotals = function () {
 		thirdPlace[0] = userInitials;
 		thirdPlace[1] = yourScore;
 		thirdPlaceEl.textContent = thirdPlace[0] + ' ' + thirdPlace[1];
+
+		localStorage.setItem( "scoreBoard", JSON.stringify(scoreBoard));
 	} else {
 		alert('Game Over. You did not place withing the top 3 scores.');
 	}
