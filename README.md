@@ -1,9 +1,9 @@
 # JavaScript Quiz Game
 
-## Overview ---need to reword -- todo --
+## Overview 
 This app is designed to help users practice for an interview through a javascript quiz game. 
 
-### learning points  -- todo ---
+### learning points  
 - JavaScript fundamentals
 - Flow control
 - Prompts, alerts, and confirm functions
@@ -41,11 +41,13 @@ THEN I can save my initials and my score
 
 ## Screenshot/mockup
 
+
 ![Start screen of the app](./assets/images/start.jpg)
-main start screen
+Main start screen
 ![correct answer](./assets/images/correct.jpg)
-correct answer chosen
+Correct answer chosen
 ![leader board](./assets/images/score-board.jpg)
+Leader board
 
 ## CodeSnippets 
 ### Countdown function
